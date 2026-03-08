@@ -1,50 +1,62 @@
-# Welcome to your Expo app 👋
+# Desenvolvimento Mobile - 2026.1
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Repositório para a disciplina utilizando React Native e Expo, escrito em TypeScript.
 
-## Get started
+## Sobre
 
-1. Install dependencies
+Aplicativo mobile multiplataforma (iOS, Android e Web) desenvolvido com **React Native** e **Expo SDK 55** no contexto da disciplina de Desenvolvimento Mobile 2026/1.
 
-   ```bash
-   npm install
-   ```
+- **Linguagem:** TypeScript
+- **Framework:** React Native 0.83.2 + Expo ~55.0.5
+- **Workflow:** Expo Managed + EAS (Expo Application Services)
+- **Bundle ID:** `br.com.renanalencar.dm20261ts`
 
-2. Start the app
+## Pré-requisitos
 
-   ```bash
-   npx expo start
-   ```
+- Node.js >= 18
+- npm (não usar yarn ou pnpm)
+- Expo Go no dispositivo físico, ou simulador iOS/Android configurado localmente
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Instalação
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Executando o projeto
 
-## Learn more
+```bash
+# Inicia o Metro bundler (menu interativo para escolher plataforma)
+npm start
 
-To learn more about developing your project with Expo, look at the following resources:
+# Abre diretamente em uma plataforma específica
+npm run android
+npm run ios
+npm run web
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Após iniciar, escaneie o QR code com o aplicativo **Expo Go** (Android/iOS) ou pressione `i` / `a` no terminal para abrir no simulador.
 
-## Join the community
+## Estrutura do projeto
 
-Join our community of developers creating universal apps.
+```
+dm-2026-1-js/
+├── index.js          # Ponto de entrada — registra o componente raiz no Expo
+├── App.js            # Componente raiz da aplicação
+├── components/       # Componentes reutilizáveis (.tsx)
+├── assets/           # Ícones, splash screen e imagens estáticas
+├── app.json          # Configuração do Expo (nome, slug, ícones, plataformas)
+├── eas.json          # Perfis de build do EAS (development, preview, production)
+└── package.json      # Dependências e scripts
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Dependências principais
+
+| Pacote             | Versão   | Finalidade                     |
+| ------------------ | -------- | ------------------------------ |
+| `expo`             | ~55.0.5  | SDK principal do Expo          |
+| `react`            | 19.2.0   | React core                     |
+| `react-native`     | 0.83.2   | Runtime iOS e Android          |
+| `react-native-web` | ^0.21.2  | Suporte à plataforma Web       |
+| `expo-updates`     | ~55.0.12 | Atualizações OTA via EAS       |
+| `expo-dev-client`  | ~55.0.11 | Dev client com módulos nativos |
