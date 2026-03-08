@@ -1,15 +1,18 @@
+import { SectionListExample } from "@/components/SectionListExample";
 import { useState } from "react";
 import { StyleSheet, Switch, Text, View } from "react-native";
 
-import { PizzaTranslator } from "@/components/PizzaTranslator";
-import { ScrollViewApp } from "@/components/ScrollViewApp";
+// import { PizzaTranslator } from "@/components/PizzaTranslator";
+// import { FlatListExample } from "@/components/FlatListExample";
 
 export default function Index() {
   let MyComponent;
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   if (isEnabled) {
-    MyComponent = <ScrollViewApp />;
+    // MyComponent = <ScrollViewApp />;
+    // MyComponent = <FlatListExample />;
+    MyComponent = <SectionListExample />;
   } else {
     MyComponent = (
       <View
@@ -21,7 +24,7 @@ export default function Index() {
         }}
       >
         <Text style={styles.title}>Olá Turma!</Text>
-        <PizzaTranslator />
+        {/* <PizzaTranslator /> */}
       </View>
     );
   }
