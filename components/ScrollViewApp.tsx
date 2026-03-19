@@ -1,63 +1,33 @@
-import { Image, ScrollView, StyleSheet, Text } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
-type LogoSource = {
-  uri: string;
-  width: number;
-  height: number;
-};
+const news = [
+  { title: "Manutenção Preventiva", content: "Manutenção no elevador social amanhã às 10h.", date: "19/03/2026 - 09:00" },
+  { title: "Assembleia Geral", content: "Reunião de condomínio na próxima sexta-feira.", date: "18/03/2026 - 14:30" },
+  { title: "Nova Portaria", content: "Novo sistema de segurança ativado na portaria.", date: "17/03/2026 - 08:15" },
+];
 
-const LOGO: LogoSource = {
-  uri: "https://reactnative.dev/img/tiny_logo.png",
-  width: 64,
-  height: 64,
-};
+export function ScrollViewApp({ isDarkMode }: { isDarkMode: boolean }) {
 
-export function ScrollViewApp() {
+  const textColor = isDarkMode ? "#ffffff" : "#333333";
+  const cardColor = isDarkMode ? "#1e1e1e" : "#ffffff";
+  const dateColor = isDarkMode ? "#aaaaaa" : "#666666";
+
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.largeText}>Scroll me plz</Text>
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Text style={styles.largeText}>If you like</Text>
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Text style={styles.largeText}>Scrolling down</Text>
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Text style={styles.largeText}>What&apos;s the best</Text>
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Text style={styles.largeText}>Framework around?</Text>
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Image source={LOGO} />
-      <Text style={styles.titleText}>React Native</Text>
+    <ScrollView style={styles.container}>
+      {news.map((item, index) => (
+        <View key={index} style={[styles.card, { backgroundColor: cardColor }]}>
+          <Text style={[styles.cardTitle, { color: textColor }]}>{item.title}</Text>
+          <Text style={{ color: textColor }}>{item.content}</Text>
+          <Text style={[styles.cardDate, { color: dateColor }]}>{item.date}</Text>
+        </View>
+      ))}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-  },
-  largeText: {
-    fontSize: 96,
-  },
-  titleText: {
-    fontSize: 80,
-  },
+  container: { paddingHorizontal: 20, flex: 1 },
+  card: { padding: 15, borderRadius: 8, marginBottom: 10, elevation: 2 },
+  cardTitle: { fontSize: 16, fontWeight: "bold", marginBottom: 5 },
+  cardDate: { fontSize: 12, marginTop: 10, textAlign: "right" }
 });
